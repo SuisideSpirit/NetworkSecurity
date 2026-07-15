@@ -13,9 +13,6 @@ from networksecurity.entity.artifact_entity import (
     ModelTrainerArtifact
 )
 
-from networksecurity.constants.training_pipeline import TRAINING_BUCKET_NAME
-from networksecurity.cloud.s3_syncer import S3Sync
-from networksecurity.constants.training_pipeline import SAVED_MODEL_DIR
 import os 
 import sys 
 

@@ -25,7 +25,7 @@ def write_yaml_file(file_path : str ,content : object , replace : bool = False )
         with open(file_path , "w") as file :
             yaml.dump(content , file)
     except Exception as e:
-            NetworkSecurityException(e,sys)
+        raise NetworkSecurityException(e,sys)
 
 def save_numpy_array(file_path : str , array : np.array):
     try :
