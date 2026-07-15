@@ -7,7 +7,6 @@ from networksecurity.exceptions.exception import NetworkSecurityException
 from networksecurity.entity.config_entity import DataIngestionConfig , DataValidationConfig ,DataTransformationConfig , ModelTrainerConfig
 from networksecurity.entity.config_entity import TrainingPipelineConfig
 import sys
-import mlflow 
 if __name__ == "__main__":
     try:
         
@@ -36,4 +35,3 @@ if __name__ == "__main__":
         
     except Exception as e : 
         raise NetworkSecurityException(e,sys)
-        

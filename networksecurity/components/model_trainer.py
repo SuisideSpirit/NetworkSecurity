@@ -23,8 +23,13 @@ from sklearn.ensemble import (
 from urllib.parse import urlparse
 from networksecurity.utils.utils import evaluate_models
 import mlflow
-os.environ["MLFLOW_ALLOW_FILE_STORE"] = "true"
-mlflow.set_tracking_uri("file:./mlruns")
+import dagshub
+
+dagshub.init(repo_owner='SuisideSpirit', repo_name='NetworkSecurity', mlflow=True)
+
+print(os.getenv("MLFLOW_TRACKING_USERNAME"))
+print(os.getenv("MLFLOW_TRACKING_PASSWORD"))
+print(os.getenv("MLFLOW_TRACKING_URI"))
 class ModelTrainer:
     def __init__(self , model_trainer_config : ModelTrainerConfig ,data_transformation_artifact : DataTransformationArtifact ):
         try:
@@ -134,7 +139,7 @@ class ModelTrainer:
             
             Network_Model = NetworkModel(preprocessor=preprocessor , model = best_model)
             save_obj(self.model_trainer_config.trained_model_file_path , obj = Network_Model)
-            
+            save_obj("final_model/model.pkl",best_model)
             #model 
             model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                                  train_metric_artifact=classification_train_metric,
