@@ -12,7 +12,6 @@ from networksecurity.utils.ml_utils.model.estimator import NetworkModel
 
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import (
