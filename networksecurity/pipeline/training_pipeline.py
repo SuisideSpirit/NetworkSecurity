@@ -12,6 +12,10 @@ from networksecurity.entity.artifact_entity import (
     DataTransformationArtifact , 
     ModelTrainerArtifact
 )
+
+from networksecurity.constants.training_pipeline import TRAINING_BUCKET_NAME
+from networksecurity.cloud.s3_syncer import S3Sync
+from networksecurity.constants.training_pipeline import SAVED_MODEL_DIR
 import os 
 import sys 
 
@@ -69,8 +73,6 @@ class TrainingPipeline:
         
         except Exception as e :
             raise NetworkSecurityException(e,sys)
-        
-
     def run_pipeline(self):
         try:
             data_ingestion_artifact = self.start_data_ingestion() 
